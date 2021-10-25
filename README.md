@@ -4,5 +4,6 @@ Trabalho Prático 2 da matéria de Linguagens Formais e Autômatos ministrada pe
 ## Integrantes
 
 - Johnny William Severo Dantas Costa
-- Paulo Vitor Costa Melo
 - João Pedro Nimuendaju Santana Santos
+- Paulo Vitor Costa Melo
+
