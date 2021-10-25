@@ -5,4 +5,4 @@ Trabalho Prático 2 da matéria de Linguagens Formais e Autômatos ministrada pe
 
 - Johnny William Severo Dantas Costa
 - Paulo Vitor Costa Melo
-
+- João Pedro Nimuendaju Santana Santos
