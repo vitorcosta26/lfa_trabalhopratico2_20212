@@ -24,7 +24,7 @@ class Gramatica:
             for simbolo in producao:
                 if str.islower(simbolo):
                     terminais.append([regra, simbolo])
-                if not str.islower(simbolo):
+                if if str.isupper(simbolo):
                     nao_terminais.append([regra, simbolo])
 
         return gramatica, simbolo_inicial, terminais, nao_terminais
