@@ -2,10 +2,11 @@ class Gramatica:
     
     # Construtor
     def __init__(self, arquivo):
-        self.gramatica, s_i, t, n_t = self.ler_gramatica(arquivo)
+        self.gramatica, s_i, r, n_t, t = self.ler_gramatica(arquivo)
         self.simbolo_inicial = s_i
-        self.terminais = t
+        self.regras = r
         self.nao_terminais = n_t
+        self.terminais = t
 
     # Ler arquivo e salvar a gramática em memória
     @staticmethod
@@ -15,16 +16,18 @@ class Gramatica:
             gramatica = gramatica.read().splitlines()
 
         simbolo_inicial = gramatica[0][0]
+        regras = []
         terminais = []
         nao_terminais = []
         for linha in gramatica:
-            regra, producao = linha.split("=>")
-            producao = producao.split("|")
+            regra, producao = linha.split(" => ")
+            producao = producao.split(" | ")
 
-            for simbolo in producao:
-                if str.islower(simbolo):
-                    terminais.append([regra, simbolo])
-                if if str.isupper(simbolo):
-                    nao_terminais.append([regra, simbolo])
+            for letra in producao:
+                regras.append([regra, letra])
+                if not str.islower(letra):
+                    nao_terminais.append([regra, letra])
+                if str.islower(letra):
+                    terminais.append([regra, letra])
 
-        return gramatica, simbolo_inicial, terminais, nao_terminais
+        return gramatica, simbolo_inicial, regras, nao_terminais, terminais
