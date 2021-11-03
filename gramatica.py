@@ -1,3 +1,5 @@
+from cyk import CYK
+
 class Gramatica:
     
     # Construtor
@@ -31,3 +33,9 @@ class Gramatica:
                     terminais.append([regra, letra])
 
         return gramatica, simbolo_inicial, regras, nao_terminais, terminais
+
+    def testr_palavra_cyk(self, palavra):
+
+        teste = CYK(self.simbolo_inicial, self.regras, self.nao_terminais, self.terminais, palavra)
+        teste.algoritmo_cyk()
+        teste.imprimir_cyk()
