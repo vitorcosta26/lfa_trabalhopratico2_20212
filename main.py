@@ -1,5 +1,5 @@
-#from menu import menu
-#from gramatica import Gramatica
+from menu import menu
+from gramatica import Gramatica
 
 # Opções de Menu
 cadastrar = 'Cadastrar gramática'
