@@ -1,0 +1,5 @@
+S => YA | XB | AS | SA | S | a
+A => b | YA | XB | AS | SA | a
+B => b
+X => a
+Y => AS

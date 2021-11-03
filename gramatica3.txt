@@ -1,0 +1,5 @@
+S => SS | AX | YA | AB | BA
+X => SB
+Y => BS
+A => a
+B => b
