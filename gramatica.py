@@ -34,6 +34,13 @@ class Gramatica:
 
         return gramatica, simbolo_inicial, regras, nao_terminais, terminais
 
+    #Impressões terminal 
+    def imprimir_gramatica(self):
+        print(f"{'-' * 25}")
+
+        for regra in self.gramatica:
+            print(regra)
+
     def testr_palavra_cyk(self, palavra):
 
         teste = CYK(self.simbolo_inicial, self.regras, self.nao_terminais, self.terminais, palavra)
