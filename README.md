@@ -9,7 +9,7 @@
 - Paulo Vitor Costa Melo
 
 ## Algoritmo CYK  
-- Algoritmo CYP ou Algoritmo Cocke-Younger-Kasami indica se um determinado alfabeto pode ser gerado a partir de uma gramatica escolhida, esse algortimo requer a escrita da gramática na forma normal de Chomsky, dessa forma os exemplos propostos ja seram passandos nessa forma normal.  
+- Algoritmo CYP ou Algoritmo Cocke-Younger-Kasami, indica se um determinado alfabeto pode ser gerado a partir de uma gramatica escolhida, esse algortimo requer a escrita da gramática na forma normal de Chomsky, dessa forma os exemplos propostos ja seram passandos nessa forma normal.  
 
 # Tutorial de como utilizar o algoritmo
 Após executar o código será exibido 5 opções:
