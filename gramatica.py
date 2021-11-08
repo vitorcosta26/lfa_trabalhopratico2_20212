@@ -43,7 +43,21 @@ class Gramatica:
         print(f"{'-' * 25}")
 
     def testr_palavra_cyk(self, palavra):
-
         teste = CYK(self.simbolo_inicial, self.regras, self.nao_terminais, self.terminais, palavra)
         teste.algoritmo_cyk()
         teste.imprimir_cyk()
+
+    def imprimir_informacoes(self):
+        print(f"{'-' * 25}")
+        print(f"Símbolo Inicial\n{self.simbolo_inicial}")
+        print("Não Terminais")
+
+        for regra in self.nao_terminais:
+            print(f"{regra[0]} => {regra[1]}")
+
+        print("Terminais")
+
+        for regra in self.terminais:
+            print(f"{regra[0]} => {regra[1]}")
+
+        print(f"{'-' * 25}")
