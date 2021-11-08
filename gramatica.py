@@ -40,6 +40,7 @@ class Gramatica:
 
         for regra in self.gramatica:
             print(regra)
+        print(f"{'-' * 25}")
 
     def testr_palavra_cyk(self, palavra):
 
