@@ -1,4 +1,5 @@
-# lfa_trabalhopratico2_20212 - Algoritmo CYK
+# Trabalho Prático 2 - 2021/2 
+## lfa_trabalhopratico2_20212 - Algoritmo CYK
 
 - Trabalho prático 2 da matéria de LFA - Linguagens formais e autômatos , ministrada pelo professor Adolfo Guimarães
 
