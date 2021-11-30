@@ -34,3 +34,10 @@ gramatica4.imprimir_gramatica()
 gramatica4.testr_palavra_cyk('bab')
 #Não pertence
 gramatica4.testr_palavra_cyk('bbbbb')
+
+gramatica5 = Gramatica('gramatica5')
+gramatica5.imprimir_gramatica()
+#Pertence
+gramatica5.testr_palavra_cyk('baaba')
+#Não pertence
+gramatica5.testr_palavra_cyk('baab')
