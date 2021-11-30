@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class CYK:
 
     def __init__(self, simbolo_inicial, regras, nao_terminais, terminais, palavra):
@@ -11,47 +13,39 @@ class CYK:
     def algoritmo_cyk(self):
 
         tabela = [[set() for l in range(len(self.palavra) - letra)] for letra in range(len(self.palavra))]
-        tabela_subcadeia = [[set() for l in range(len(self.palavra) - letra)] for letra in range(len(self.palavra))]
+        tabela_subcadeia = defaultdict(set)
 
-        for i, letra in enumerate(self.palavra):
-            for terminal in self.terminais:
-                if terminal[1] == letra:
-                    tabela[0][i].add(terminal[0])
-                    tabela_subcadeia[0][i].add(letra)
-                elif len(tabela_subcadeia[0][i]) == 0 and terminal[1] != letra:
-                    tabela_subcadeia[0][i].add(letra)
+        for i in range(1, len(self.palavra) + 1):
 
-        for i in range(1, len(self.palavra)):
-            for j in range(len(self.palavra) - i):
-                for k in range(i):
+            for j in range(len(self.palavra) + 1 - i):
+                subcadeia = self.palavra[j:j+i]
+                
+                if len(subcadeia) == 1:
+                
+                    for regra_terminal in self.terminais:
+                        if regra_terminal[1] == subcadeia:
+                            tabela[i - 1][j].add(regra_terminal[0])
+                            tabela_subcadeia[subcadeia].add(regra_terminal[0])
+
+                else:
+
                     regras_subcadeia = set()
+                    
+                    for k in range(i - 1):
 
-                    for primeira_regra in tabela_subcadeia[k][j]:
-                        for segunda_regra in tabela_subcadeia[i - k - 1][j + k + 1]:
-                            if str.islower(primeira_regra):
-                                for regra in self.terminais:
-                                    if regra[1] == primeira_regra:
-                                        primeira_regra = regra[0]
-                            elif str.isupper(primeira_regra):
-                                for regra in self.nao_terminais:
-                                    if regra[1] == primeira_regra:
-                                        primeira_regra = regra[0]
-                            if str.islower(segunda_regra):
-                                for regra in self.terminais:
-                                    if regra[1] == segunda_regra:
-                                        segunda_regra = regra[0]
-                            elif str.isupper(segunda_regra):
-                                for regra in self.nao_terminais:
-                                    if regra[1] == segunda_regra:
-                                        segunda_regra = regra[0]
-                            regras_subcadeia.add(primeira_regra + segunda_regra)
-                    combinacoes = regras_subcadeia
+                        producao_1 = tabela_subcadeia[subcadeia[:k + 1]]
+                        producao_2 = tabela_subcadeia[subcadeia[k + 1:]]
 
-                    for combinacao in combinacoes:
-                        for regra in self.regras:
-                            if regra[1] == combinacao:
-                                tabela[i][j].add(regra[0])
-                                tabela_subcadeia[i][j].add(regra[0])
+                        for producao in [l + m for l in producao_1 for m in producao_2]:
+
+                            for regra_nao_terminal in self.nao_terminais:
+                                if producao == regra_nao_terminal[1]:
+                                    tabela[i - 1][j].add(regra_nao_terminal[0])
+                                    regras_subcadeia.add(regra_nao_terminal[0])
+                    
+                    tabela_subcadeia[subcadeia] = regras_subcadeia
+        
+
 
         if self.simbolo_inicial in tabela[len(self.palavra) - 1][0]:
             return True, tabela
