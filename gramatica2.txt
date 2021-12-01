@@ -1,5 +1,5 @@
 S => XY
-X => SY | A | BB
+X => SY | a | BB
 Y => AA
 A => a
 B => b
