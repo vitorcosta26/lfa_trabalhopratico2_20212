@@ -12,7 +12,7 @@ sair = 'Sair'
 opcoes = (cadastrar, imprimir_gramatica, imprimir_informacoes, testar, sair)
 
 # Mensagens do menu
-inicio = '\nEscolha uma das opções de gráfico abaixo\n'
+inicio = '\nEscolha uma das opções abaixo\n'
 opcao = '\nDigite a opção escolhida: '
 
 # Menu
